@@ -1,0 +1,54 @@
+body {
+	background-color: #9C6200;
+background-image: background-color: #b27100;
+background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+header {
+	text-align: center;
+	margin-bottom: 6rem;
+}
+.intro {
+	margin-bottom: 3rem;
+}
+.searchbar {
+	height: 3rem;
+	margin-bottom: 2rem;
+	text-align: center;
+
+}
+input {
+	display: inline-block !important;
+	height: 100%;
+	font-family: bookman;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 400;
+	line-height: 34.1px;
+}
+button {
+	height: 100%;
+	font-family: monospace;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 400;
+	line-height: 34.1px;
+}
+small {
+	display: block;
+	font-size: 20px;
+}
+.track-art{
+	top: 50%;
+	left: 50%;
+}
+.track-table {
+	margin: 0 auto;
+}
+td:nth-child(2){
+	display: block;
+	border-bottom: 2px solid black;
+}
+.speaker {
+	cursor: pointer;
+}

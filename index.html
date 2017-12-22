@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="custom.css">
+	<title>SoundOn</title>
+</head>
+<body>
+	<div class="container-fluid" ng-controller="weatherCtrl">
+		<header>
+			<h1>SoundOn</h1>
+			<p>Find your weather. Find your groove</p>
+			<hr>
+		</header>
+		<form ng-submit="newLocation()" class="searchbar">
+			<input type="text" class="form-control input-lg w-75" ng-model="locale" placeholder="weather in your city"></input>
+			<input type="submit" value="submit"></input>
+		</form>
+
+		<h2 class="text-center mb-5">The weather in <strong>{{location}}</strong> is </h2>
+		<div class="row" style="height: 6rem">
+			<div class="col">
+				<button type="button" class="btn btn-primary btn-lg w-100">{{tempF}}&#8457;</button>
+			</div>
+
+			<div class="col">
+				<button type="button" class="btn btn-outline-primary btn-lg w-100 disabled">{{description}}</button>
+			</div>
+			<div class="col">
+				<button type="button" class="btn btn-primary btn-lg w-100">wind:<br>{{wind}}</button>
+			</div>
+		</div>
+
+		<div class="col-sm-6 float-left">
+
+				<audio class="w-100" controls ng-src="{{song}}" id="audio" autoplay="true"></audio>
+			<div ng-repeat="track in tracks">
+				<ul id="playlist">
+					<li class="active">
+						<a href="{{track.m4a}}">{{track.title}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-6 float-left">
+			<div class="speaker">Speaker</div>
+		</div>
+		<small class="fixed-bottom">Powered by AngularJS</small>
+	</div>
+
+	<script src="angular-dep/jquery.min.js"></script>
+	<script src="angular-dep/angular.min.js"></script>
+	<script src="app.js"></script>
+	</body>
+	</html>
