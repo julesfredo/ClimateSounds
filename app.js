@@ -37,11 +37,12 @@ angular.module('myapp',[])
 	$http.get('http://ip-api.com/json/').then(SuccessCallback, errorCallback);
 
 	//Runs upon entering a city
+	$scope.audio = new Audio();
 	$scope.newLocation = function(){
 		var apiKey = '67d4ac0e95120bc42f358dbe5cce49e8';
 		var openWeatherUrlCity = 'http://api.openweathermap.org/data/2.5/weather?q='
 		 + $scope.locale + '&appid=' + apiKey;
-		var itunesUrl = 'https://itunes.apple.com/us/rss/topsongs/genre=' + 1192 + '/json';
+		 
 		var cityWeatherCallback = function(response, data) {
 			$scope.description = response.data.weather[0].description;
 			$scope.temp = 1.8*(response.data.main.temp-273) + 32;
@@ -51,10 +52,39 @@ angular.module('myapp',[])
 			$scope.location = response.data.name;
 
 		};
-			
+		switch($scope.description) {
+			case 'scattered clouds':
+				genre = 1111;
+				break;
+			case 'few clouds':
+				genre = 1112;
+				break;
+			case 'mist':
+				genre = 1113;
+				break;
+			case 'haze':
+				genre = 1114;
+				break;
+			case 'overcast clouds':
+				genre = 1010;
+				break;
+			case 'clear sky':
+				genre = 1192;
+				break;
+			case 'broken clouds':
+				genre = 1147;
+				break;
+			default:
+				genre = 1143;
+		};
+
+		var itunesUrl = 'https://itunes.apple.com/us/rss/topsongs/genre=' + genre + '/json';
+
+		
 			$http.get(openWeatherUrlCity).then(cityWeatherCallback, errorCallback);
 			$http.get(itunesUrl).then(function(response, data) {
 			
+			//assign iTunes data
 				var music =[{
 					title: response.data.feed.entry[0].title.label,
 					m4a: response.data.feed.entry[0].link[01].attributes.href
@@ -89,11 +119,17 @@ angular.module('myapp',[])
 				}
 				];
 				$scope.tracks = music;
-				var audio = document.getElementById('audio').ended;
-				for(i=0; i < ($scope.tracks).length; i++) {
-					$scope.song = $scope.tracks[i].m4a;
-					console.log($scope.tracks[i]);
-				};
+				
+				$scope.ii = 0;
+				$scope.audio.addEventListener('ended', function() {
+					$scope.ii = $scope.ii+1;
+					$scope.audio.src = $scope.tracks[$scope.ii].m4a
+					$scope.audio.play();
+					//replay playlist
+					if ($scope.ii > 7) {	$scope.ii = 0;	};
+				});
+				$scope.audio.src = $scope.tracks[$scope.ii].m4a
+				$scope.audio.play();
 				console.log(response.status);
 			}, errorCallback);
 			$scope.locale = "";
