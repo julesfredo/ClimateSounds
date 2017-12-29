@@ -10,47 +10,56 @@
 	<div class="container-fluid" ng-controller="weatherCtrl">
 		<header>
 			<h1>SoundOn</h1>
-			<p>Find your weather. Find your groove</p>
+			<p>Find the weather. Find your groove</p>
 			<hr>
 		</header>
+		<div class="row" id="tempWind">
+			<div class="temp col">
+				{{tempF}} &#8457;
+			</div>
+
+			<div class="wind col">
+				wind:<br>{{wind}}
+			</div>
+		</div>
+		<div class="city col">
+			<strong class="center mb-5">{{location}}</strong>
+		</div>
 		<form ng-submit="newLocation()" class="searchbar">
 			<input type="text" class="form-control input-lg w-75" ng-model="locale" placeholder="weather in your city"></input>
 			<input type="submit" value="submit"></input>
 		</form>
+		<!-- <div id="song" class="text-center collapse">Your Listening to track #{{ii + 1}}</div> -->
+		<div class="weather col">{{description}}</div>
 
-		<h2 class="text-center mb-5">The weather in <strong>{{location}}</strong> is </h2>
-		<div class="row" style="height: 6rem">
-			<div class="col">
-				<button type="button" class="btn btn-primary btn-lg w-100">{{tempF}}&#8457;</button>
+
+		<div class="row">
+			<div class="col-sm-7">
+			<table id="table" class="collapse">
+				<thead>
+					<tr>
+						<th class="text-center">Track title</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr ng-repeat="track in tracks">
+						<td id="active">{{track.title}}</td>
+					</tr>
+				</tbody>
+			</table>
 			</div>
 
-			<div class="col">
-				<button type="button" class="btn btn-outline-primary btn-lg w-100 disabled">{{description}}</button>
-			</div>
-			<div class="col">
-				<button type="button" class="btn btn-primary btn-lg w-100">wind:<br>{{wind}}</button>
+			<div class="col-sm-5">
+				<div id="playbtn" class="pausebtn collapse">
+				</div>
 			</div>
 		</div>
-
-		<div class="col-sm-6 float-left">
-
-				<audio class="w-100" controls ng-src="{{song}}" id="audio" autoplay="true"></audio>
-			<div ng-repeat="track in tracks">
-				<ul id="playlist">
-					<li class="active">
-						<a href="{{track.m4a}}">{{track.title}}</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-sm-6 float-left">
-			<div class="speaker">Speaker</div>
-		</div>
-		<small class="fixed-bottom">Powered by AngularJS</small>
+		<small class="text-right fixed-bottom">Powered by AngularJS</small>
 	</div>
 
-	<script src="jquery.min.js"></script>
-	<script src="angular.min.js"></script>
+	<script src="angular-dep/jquery.min.js"></script>
+	<script src="angular-dep/angular.min.js"></script>
 	<script src="app.js"></script>
-	</body>
-	</html>
+</body>
+</html>
