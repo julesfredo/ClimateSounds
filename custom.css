@@ -1,8 +1,9 @@
 body {
-	background-color: #9C6200;
-background-image: background-color: #b27100;
+	background-color: #161220;
+background-image: background-color: #161220;
 background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+color: #E9C87B;
 }
 header {
 	text-align: center;
@@ -26,29 +27,61 @@ input {
 	font-weight: 400;
 	line-height: 34.1px;
 }
-button {
-	height: 100%;
-	font-family: monospace;
-	font-style: normal;
-	font-variant: small-caps;
-	font-weight: 400;
-	line-height: 34.1px;
-}
 small {
 	display: block;
 	font-size: 20px;
 }
-.track-art{
-	top: 50%;
-	left: 50%;
+.active {
+	background-color: lightblue;
 }
-.track-table {
-	margin: 0 auto;
+#speaker {
+	font-weight: 900;
+	font-size: 5rem;
 }
-td:nth-child(2){
-	display: block;
-	border-bottom: 2px solid black;
+.temp, .wind, .city, .weather {
+	text-align: center;
+	font: 2rem "Roboto", sans-serif;
+	font-color
 }
-.speaker {
+.temp {
+	padding-top: 1.250rem;
+}
+.wind {
+	border-left: 2px solid #E9C87B;
+	font-variant: small-caps;
+}
+.weather {
+	font-variant: small-caps;
+	font-size: 3rem;
+}
+#tempWind {
+	height: 6rem;
+	margin: 3rem 0;
+	border-bottom: 1px solid #E9C87B;
+}
+.city, .weather {
+	margin-bottom: 2.5rem;
+}
+table, td, th {
+    border: 1px solid gray;
+}
+table {
+	width: 100%;
+	border-collapse: separate;
+}
+#playbtn {
+	height: 60px;
+	width: 60px;
 	cursor: pointer;
+}
+.playbtn {
+	border: .5px dashed #E9C87B;
+	border-radius: .5rem;
+	padding: auto 0;
+	background: url(icons/play.png) no-repeat;
+}
+.pausebtn {
+	padding: auto 0;
+	border: .5px dashed #E9C87B;
+	background: url(icons/pause.png) no-repeat;
 }
