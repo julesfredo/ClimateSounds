@@ -43,10 +43,12 @@ angular.module('myapp',[])
 				$scope.audio.play();
 				$scope.playbtn.classList.remove('playbtn');
 				$scope.playbtn.classList.add('pausebtn');
+				console.log('playing');
 			} else {
 				$scope.audio.pause();
 				$scope.playbtn.classList.remove('pausebtn');
 				$scope.playbtn.classList.add('playbtn');
+				console.log('paused');
 			}
 		};
 		playbtn.addEventListener('click', playPause);
@@ -172,7 +174,7 @@ angular.module('myapp',[])
 					if ($scope.ii > 7) {	$scope.ii = 0;	};
 				});
 			$scope.audio.src = $scope.tracks[$scope.ii].m4a
-			$scope.audio.play();
+			
 			console.log(itunesUrl);
 		}, errorCallback);
 			$scope.locale = "";
