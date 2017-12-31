@@ -100,7 +100,7 @@ angular.module('myapp',[])
 				case 'clear sky':
 				genre = 1192;
 				break;
-				case 'heavy rain':
+				case 'heavy intensity  rain':
 				genre = 1143;
 				break;
 				case 'moderate rain':
