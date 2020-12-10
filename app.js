@@ -2,8 +2,9 @@ angular.module('myapp',[])
 .controller('weatherCtrl', function($scope, $http) {
 	//Gather initial location callbacks
 	var SuccessCallback = function(response, data) {
-		$scope.lon = parseFloat(response.data.lon);
-		$scope.lat = parseFloat(response.data.lat);
+		console.log(response);
+		$scope.lon = parseFloat(response.data.longitude);
+		$scope.lat = parseFloat(response.data.latitude);
 
 		var errorCallback = function(error) {
 			console.log("there was an error", error)
@@ -33,7 +34,7 @@ angular.module('myapp',[])
 		console.log("there was an error", error)
 	};
 	//API Query for coordinates
-	$http.get('http://ip-api.com/json/').then(SuccessCallback, errorCallback);
+	$http.get('https://ipwhois.app/json/').then(SuccessCallback, errorCallback);
 
 	//Runs upon entering a city
 	$scope.audio = new Audio();
@@ -68,9 +69,10 @@ angular.module('myapp',[])
 
 		};
 		$http.get(openWeatherUrlCity).then(cityWeatherCallback, errorCallback);
-		$('table').removeClass('collapse')
+		$('#table').removeClass('collapse')
 		$('#playbtn').removeClass('collapse');
 		}//End newLocation
+		var genre =0; 
 		function rest(description) {
 			switch($scope.description) {
 				case 'overcast clouds':

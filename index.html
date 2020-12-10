@@ -13,6 +13,9 @@
 			<p>Find the weather. Find your groove</p>
 			<hr>
 		</header>
+		<form ng-submit="newLocation()" class="searchbar">
+			<input type="text" class="form-control input-lg w-75" ng-model="locale" placeholder="weather in your city"></input>
+		</form>
 		<div class="row" id="tempWind">
 			<div class="temp col">
 				{{tempF}} &#8457;
@@ -25,9 +28,7 @@
 		<div class="city col">
 			<strong class="center mb-5">{{location}}</strong>
 		</div>
-		<form ng-submit="newLocation()" class="searchbar">
-			<input type="text" class="form-control input-lg w-75" ng-model="locale" placeholder="weather in your city"></input>
-		</form>
+
 		<!-- <div id="song" class="text-center collapse">Your Listening to track #{{ii + 1}}</div> -->
 		<div class="weather col">{{description}}</div>
 
