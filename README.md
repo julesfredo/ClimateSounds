@@ -1,5 +1,5 @@
-# SoundOn
-SoundOn is an application for fetching music based on weather conditions.
+# ClimateSounds
+ClimateSounds is an application for fetching music based on weather conditions.
 Users computers' nearest ISP location is where the initial weather report originiates from.
 Search any city for the corresponding weather report
 
